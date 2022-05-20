@@ -1,0 +1,123 @@
+#include <iostream>
+#include "ooc.cpp"
+#include "MyPart.h"
+
+using namespace std;
+int main()
+{
+owner *o1;
+ 	o1->Displayowner();
+Admin *a1;
+ 	a1->displayAdmin();
+Payment* p1;
+ 	p1->displaypaymentDetails();
+
+  }
+  class Owner 
+{
+	private:
+	char ownerID[5];
+	char ownername[20];
+	Feedback* f1[5];
+	public:
+	Owner();
+	Owner(char ID[5], const char name[20]);
+	void Displayowner();
+	~Owner();
+};
+
+class Admin 
+{
+	private:
+	char adminID[5];
+	char AdminName[25];
+Report* r1[4];
+	public:
+	Admin();
+	Admin(char ID[], const char name[], Category*c1, Order*o1, Payment*p1);
+	void displayAdmin() {
+	r1[1] = new Report();
+}
+~Admin();
+};
+
+class Payment 
+{
+	private:
+	char paymentID[5];
+	char paymentdescription[25];
+	double Amount;
+	char paymentType[5];
+	public:
+	Payment();
+	Payment(const char ID[], const char description[], double amount, char type[] );
+	void displaypaymentDetails();
+	~Payment();
+};
+  //owner
+Owner::Owner() 
+{
+	strcpy(ownerID, "");
+	strcpy(ownername, "");
+}
+Owner::Owner(char ID[5], const char name[20]) 
+{
+strcpy(ownerID, ID);
+	strcpy(ownername, name);
+}
+void Owner::Displayowner() 
+{
+	cout << "Owner id : " << ownerID << endl;
+	cout << "Ownername : " << ownername << endl;
+}
+Owner::~Owner() 
+{
+	cout << "Owner id :" << ownerID << endl;
+}
+
+//Admin
+Admin::Admin() 
+{
+	strcpy_s(adminID, "");
+	strcpy_s(AdminName, "");
+}
+Admin::Admin(char ID[], const char name[], Category * c1, Order * o1, Payment * p1) 
+{
+	strcpy_s(adminID, ID);
+	strcpy_s(AdminName, name);
+}
+void Admin:: displayAdmin() 
+{
+	r1[1] = new Report();
+}
+Admin::~Admin()
+{
+	cout << "Admin id :" << adminID << endl;
+};
+
+
+//Payment
+Payment::Payment() 
+{
+	strcpy_s(paymentID, "");
+	strcpy_s(paymentdescription, "");
+	Amount = 0;
+	strcpy_s(paymentType, "");
+}
+Payment::Payment(const char ID[], const char description[], double amount, char type[]) 
+{
+	strcpy_s(paymentID, ID);
+	strcpy_s(paymentdescription, description);
+	Amount = amount;
+	strcpy_s(paymentType, type);
+}
+void Payment::displaypaymentDetails()
+{
+	cout << "Payment id:" << paymentID << endl;
+	cout << "Payment description : " << paymentdescription << endl;
+	cout << "Payment amount " << Amount << endl;
+	cout << "Paymnet type :" << paymentType << endl;
+}
+Payment::~Payment() {
+cout << "Payment id :" << paymentID << "Deleted " << endl;
+};
