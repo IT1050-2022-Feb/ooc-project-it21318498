@@ -1,0 +1,63 @@
+#include <iostream>
+
+using namespace std;
+int main()
+{
+  Order* order1;
+ 	order1->Displayorder();
+Feedback* feed;
+ 	feed->getviewfeedback();
+
+}
+
+class Order 
+{
+	private:
+	char orderID[5];
+	char orderType[5];
+	char Location[20];
+	Payment* p1[5];
+	public:
+	Order();
+	Order(char ID[], char location[]);
+	void setordertype(char type);
+	void Displayorder() {
+	p1[1] = new Payment();
+}
+~Order();
+};
+
+class Feedback 
+{
+	private:
+	int feedbackID;
+	char feedbackdescription[45];
+	int feedbackview;
+	Owner* o1[];
+	public:
+	Feedback();
+	Feedback(int id, const char description[]);
+	int getviewfeedback();
+	~Feedback();
+} 
+
+//Composition feedbacks
+char feedbackdescription[100];
+ cout<<"Description :";
+ cin>>feedbackdescription[100];
+char feedbackreply[100];
+ cout<<"Reply :";
+ cin>>feedbackreply[100];
+feedbacks[5]= new Feedback(feedbackdescription[100],feedbackreply[100] );
+
+//Composition orders
+char orderID[5];
+ cout<<"ID:";
+ cin>>orderID;
+char orderType[5];
+ cout<<"type :";
+ cin>>orderType;
+char Location[20];
+ cout<<"location :";
+ cin>>Location;
+orders[5]= new Order(orderID,orderType,Location[20]);
