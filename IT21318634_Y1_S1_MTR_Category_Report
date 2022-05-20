@@ -1,0 +1,82 @@
+#include <iostream>
+#include <cstring>
+
+using namespace std;
+int main()
+{
+  Report* r1;
+ 	r1->getgenerateReport();
+ 	Category* items;
+ 	items->viewproduct();
+}
+
+class Category 
+
+{
+	char ProductID[5];
+	char Productname[20];
+	double Productprice;
+	char Productdescription[20];
+	Customer* c1;
+	public:
+	Category();
+	void editproduct(const char name[]);
+	void removeproduct();
+	void viewproduct();
+	~Category();
+};
+
+class Report 
+{
+	
+	private:
+	char reportID[5];
+	char Details[100];
+	Owner* o1[2];
+	public:
+	Report();
+	int getgenerateReport();
+	~Report();
+};
+
+
+//category
+Category::Category() 
+{
+	strcpy_s(ProductID, "");
+	strcpy_s(Productname, "");
+	Productprice = 0;
+	strcpy_s(Productdescription, "");
+}
+void Category::editproduct(const char name[]) 
+{
+	strcpy_s(Productname, name);
+}
+void Category::removeproduct() 
+{
+	cout << "Product Id :" << ProductID << endl;
+}
+void Category::viewproduct() 
+{
+	cout << "Product id :" << ProductID << endl;
+}
+Category::~Category() 
+{
+	cout << "product Id :" << ProductID << "Deleted" << endl;
+};
+
+
+//report
+Report::Report() 
+{
+	strcpy_s(reportID, "");
+	strcpy_s(Details, "");
+}
+int Report:: getgenerateReport() 
+{
+	return Details[75];
+}
+Report::~Report() 
+{
+	cout << "Report id :" << reportID << "Deleted " << endl;
+};
