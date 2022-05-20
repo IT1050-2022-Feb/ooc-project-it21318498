@@ -1,0 +1,97 @@
+#include <iostream>
+#include <cstring>
+using namespace std;
+int main()
+{
+	Customer *o1;
+ 	o1->DisplayCustomer ();
+ 	Shopkeeper *s1;
+ 	s1->Display();
+}
+class Customer
+{
+	private:
+	char UserID[5];
+	char Fname[15];
+	char Lname[15];
+	char Username[10];
+	char Email[30];
+	char password[10];
+	Feedback* feedbacks[5];
+	Order* orders[4];
+	Category* categories[2];
+	public:
+	Customer();
+	Customer (char ID[5], const char fname[15], const char lname[15]);
+	void displaycustomer() {
+	feedbacks[1] = new Feedback();
+	o1[1] = new Order();
+	c1[1] = new Category();
+}
+~Customer();
+};
+
+class Shopkeeper
+{
+	private:
+	char shopkeeperID[5];
+	char shopkeepername[20];
+	Order* o1[10];
+	public:
+	Shopkeeper();
+	Shopkeeper(char ID[], const char name[]);
+	void Display();
+	~Shopkeeper();
+};
+
+
+//customers
+Customer::Customer() 
+{		
+  	 strcpy(UserID,"");
+     strcpy(Fname,"");
+     strcpy(Lname,"");
+    strcpy(Username,"");
+    strcpy(Email,"");
+    strcpy(password,"");
+}
+
+Customer::Customer(char ID[5], const char fname[15], const char lname[15])
+{
+	
+	strcpy(UserID, ID);
+	strcpy(Fname, fname);
+	strcpy(Lname, lname);
+}
+
+void Customer::displaycustomer() 
+{
+	feedbacks[5] = new Feedback();
+	orders[5] = new Order();
+	categories[5] = new Category();
+}
+Customer::~Customer() 
+{
+	cout << "User id :" << UserID << "Deleted " << endl;
+}
+
+Shopkeeper::Shopkeeper() 
+{
+	strcpy_s(shopkeeperID, "");
+	strcpy_s(shopkeepername, "");
+}
+Shopkeeper::Shopkeeper(char ID[], const char name[]) 
+{
+	
+	strcpy_s(shopkeeperID, ID);
+	strcpy_s(shopkeepername, name);
+}
+void Shopkeeper::Display() 
+{
+	cout << "Shopkeeper id : " << shopkeeperID << endl;
+	cout << "Shopkeeper name : " << shopkeepername << endl;
+}
+Shopkeeper::~Shopkeeper() 
+{
+	cout << "shopkeeper id :" << shopkeeperID << "Deleted " << endl;
+}
